@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	lang="pt-br">
+
+	
+<h:head>
+	<meta http-equi="Content=Type" content="text/html; charset=ISO-8859-1"/>
+	<title>Dados Pessoais</title>
+</h:head>
+
+<body>
+	<h:form>
+		<h:panelGrid colums = "2">
+			<f:facet name="header">
+				Cadastro de Usuario
+			</f:facet>
+			Nome:
+			<h:inputText value = "#{cadastro.pessoa.nome}"/>
+			
+			E-mail:
+			<h:inputText value = "#{cadastro.pessoa.email}"/>
+			
+			Data de nascimento:
+			<h:inputText value = "#{cadastro.pessoa.dataNaci}"/>
+			
+			Rua:
+			<h:inputText value = "#{cadastro.pessoa.rua}"/>
+			
+			Numero:
+			<h:inputText value = "#{cadastro.pessoa.numero}"/>
+			
+			Complemento:
+			<h:inputText value = "#{cadastro.endereco.complemento}"/>
+			
+			Bairro:
+			<h:inputText value = "#{cadastro.endereco.bairro}"/>
+			
+			CEP:
+			<h:inputText value = "#{cadastro.endereco.cep}"/>
+			
+			Cidade:
+			<h:inputText value = "#{cadastro.endereco.cidade}"/>
+			
+			Estado:
+			<h:selectOneMenu value = "#{cadastro.pessoa.endereco.endeResi.estado.sigla}"/>
+				<f:selectItem itemValue="Selecione" noSelectionOption="true"/>
+				<f:selectItem value = "#{cadastro.estado}" var = "e" itemValue="#{e.sigla}"
+				itemLabel="#{e.sigla} - #{e.nome}"/>
+			</h:selectOneMenu>
+			
+			Telefone residencias
+			<h:panelGroup>
+				<h:inputTextarea value = "#{cadastro.pessoa.teleResi.ddd}" size = "2" maxlegth = "2"/>
+				<h:inputTextarea value = "#{cadastro.pessoa.teleResi.numero}" size = "2" maxlegth = "2"/>
+			</h:panelGroup>
+		
+			Telefone celular
+			<h:panelGroup>
+				<h:inputTextarea value = "#{cadastro.pessoa.teleComerci.ddd}" size = "2" maxlegth = "2"/>
+				<h:inputTextarea value = "#{cadastro.pessoa.teleComerci.numero}" size = "2" maxlegth = "2"/>
+			</h:panelGroup>
+		
+		
+		<h:commandButton value = "Proximo" action = "InfoE"/>		
+	</h:form>
+		<!-- baind ele faz ligacao com o pageBig --> 
+</body>
+	
+</html>
